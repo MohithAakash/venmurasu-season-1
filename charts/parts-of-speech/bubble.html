@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 1000px;
+            max-width: 1000px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Packed bubble charts are visualizations where the size and optionally
+            the color of the bubbles are used to visualize the data. The positioning
+            of the bubbles is not significant, but is optimized for compactness.
+            Try dragging the bubbles in this chart around, and see the effects.
+        </p>
+    </figure>
+
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                type: 'packedbubble',
+                height: '100%'
+            },
+            title: {
+                text: 'Breakdown Of Parts of Speech'
+            },
+            tooltip: {
+                useHTML: true,
+                pointFormat: '<b>{point.name}:</b> {point.value}'
+            },
+            plotOptions: {
+                packedbubble: {
+                    minSize: '60%',
+                    maxSize: '120%',
+                    zMin: 1,
+                    zMax: 500,
+                    layoutAlgorithm: {
+                        splitSeries: false,
+                        gravitationalConstant: 0.02
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}',
+                        filter: {
+                            property: 'y',
+                            operator: '>',
+                            value: 10
+                        },
+                        style: {
+                            color: 'black',
+                            textOutline: 'none',
+                            fontWeight: 'normal'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Noun',
+                data: [{
+                        'name': 'தன்',
+                        'value': 44
+                    },
+                    {
+                        'name': 'ஜனமேஜயன்',
+                        'value': 31
+                    },
+                    {
+                        'name': 'அவன்',
+                        'value': 31
+                    },
+                    {
+                        'name': 'வைசம்பாயனர்',
+                        'value': 25
+                    },
+                    {
+                        'name': 'ஆஸ்திகன்',
+                        'value': 22
+                    },
+                    {
+                        'name': 'அதன்',
+                        'value': 18
+                    },
+                    {
+                        'name': 'நீ',
+                        'value': 18
+                    },
+                    {
+                        'name': 'உன்',
+                        'value': 17
+                    },
+                    {
+                        'name': 'ஒவ்வொரு',
+                        'value': 13
+                    },
+                    {
+                        'name': 'நாகங்கள்',
+                        'value': 13
+                    },
+                    {
+                        'name': 'பரீட்சித்',
+                        'value': 13
+                    },
+                    {
+                        'name': 'அவள்',
+                        'value': 12
+                    },
+                    {
+                        'name': 'என்ன',
+                        'value': 10
+                    },
+                    {
+                        'name': 'அவர்களின்',
+                        'value': 10
+                    },
+                    {
+                        'name': 'வியாசர்',
+                        'value': 10
+                    },
+                    {
+                        'name': 'உங்கள்',
+                        'value': 9
+                    },
+                    {
+                        'name': 'தட்சன்',
+                        'value': 9
+                    },
+                    {
+                        'name': 'திரும்பி',
+                        'value': 9
+                    },
+                    {
+                        'name': 'உடல்',
+                        'value': 8
+                    },
+                    {
+                        'name': 'ஏழு',
+                        'value': 8
+                    },
+                    {
+                        'name': 'பின்பு',
+                        'value': 8
+                    },
+                    {
+                        'name': 'நடுவே',
+                        'value': 8
+                    },
+                    {
+                        'name': 'அத்தனை',
+                        'value': 8
+                    },
+                    {
+                        'name': 'அவை',
+                        'value': 8
+                    },
+                    {
+                        'name': 'அவளுடைய',
+                        'value': 7
+                    },
+                    {
+                        'name': 'அன்னை',
+                        'value': 7
+                    },
+                    {
+                        'name': 'இங்கே',
+                        'value': 7
+                    },
+                    {
+                        'name': 'அவரை',
+                        'value': 7
+                    },
+                    {
+                        'name': 'கண்டு',
+                        'value': 6
+                    },
+                    {
+                        'name': 'மேலே',
+                        'value': 6
+                    },
+                    {
+                        'name': 'மெல்ல',
+                        'value': 6
+                    },
+                    {
+                        'name': 'அவனை',
+                        'value': 6
+                    },
+                    {
+                        'name': 'தூக்கி',
+                        'value': 6
+                    },
+                    {
+                        'name': 'அவ்வாறே',
+                        'value': 6
+                    },
+                    {
+                        'name': 'நோக்கி',
+                        'value': 6
+                    },
+                    {
+                        'name': 'பெயர்',
+                        'value': 6
+                    },
+                    {
+                        'name': 'நின்று',
+                        'value': 6
+                    },
+                    {
+                        'name': 'மண்ணில்',
+                        'value': 6
+                    },
+                    {
+                        'name': 'உள்ளே',
+                        'value': 5
+                    },
+                    {
+                        'name': 'கண்கள்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'வியாசரை',
+                        'value': 5
+                    },
+                    {
+                        'name': 'அப்பால்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'முனிவரின்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'கையில்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'அன்னையின்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'இதோ',
+                        'value': 5
+                    },
+                    {
+                        'name': 'கோடானுகோடி',
+                        'value': 5
+                    },
+                    {
+                        'name': 'குருநாதரே',
+                        'value': 5
+                    },
+                    {
+                        'name': 'அரண்மனை',
+                        'value': 5
+                    },
+                    {
+                        'name': 'ஜனமேஜயனின்',
+                        'value': 5
+                    }
+                ]
+            }, {
+                name: 'VERB',
+                data: [{
+                        'name': 'என்றார்',
+                        'value': 42
+                    },
+                    {
+                        'name': 'எழுந்து',
+                        'value': 19
+                    },
+                    {
+                        'name': 'என்றான்',
+                        'value': 17
+                    },
+                    {
+                        'name': 'சென்று',
+                        'value': 11
+                    },
+                    {
+                        'name': 'ஜனமேஜயன்',
+                        'value': 10
+                    },
+                    {
+                        'name': 'வைசம்பாயனர்',
+                        'value': 9
+                    },
+                    {
+                        'name': 'கொண்டு',
+                        'value': 9
+                    },
+                    {
+                        'name': 'வியாசர்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'கேட்டான்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'நின்றார்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'சொன்னான்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'ஆஸ்திகன்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'கண்டான்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'ஆரம்பித்தது',
+                        'value': 6
+                    },
+                    {
+                        'name': 'அணிந்த',
+                        'value': 6
+                    },
+                    {
+                        'name': 'மானசாதேவி',
+                        'value': 6
+                    },
+                    {
+                        'name': 'பெயர்',
+                        'value': 6
+                    },
+                    {
+                        'name': 'சென்றான்',
+                        'value': 6
+                    },
+                    {
+                        'name': 'உள்ளே',
+                        'value': 5
+                    },
+                    {
+                        'name': 'கூவினார்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'எடுத்து',
+                        'value': 5
+                    },
+                    {
+                        'name': 'என்றனர்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'நடந்து',
+                        'value': 5
+                    },
+                    {
+                        'name': 'கிடந்தது',
+                        'value': 5
+                    },
+                    {
+                        'name': 'கண்டார்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'என்றாள்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'மண்ணில்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'மகாவியாசர்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'கவிஜாதன்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'ஓவியம்:',
+                        'value': 4
+                    },
+                    {
+                        'name': 'முழுக்க',
+                        'value': 4
+                    },
+                    {
+                        'name': 'அறிந்தது',
+                        'value': 4
+                    },
+                    {
+                        'name': 'அமர்ந்திருந்தார்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'பரீட்சித்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'கண்டனர்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'மைந்தன்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'தட்சன்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'இருக்கவில்லை',
+                        'value': 4
+                    },
+                    {
+                        'name': 'வேள்வி',
+                        'value': 4
+                    },
+                    {
+                        'name': 'மெல்ல',
+                        'value': 4
+                    },
+                    {
+                        'name': 'சொன்னாள்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'வைத்து',
+                        'value': 4
+                    },
+                    {
+                        'name': 'வந்தான்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'முழுமை',
+                        'value': 4
+                    },
+                    {
+                        'name': 'ஷண்முகவேல்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'வந்தார்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'ஆரம்பித்தான்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'தொடங்கியது',
+                        'value': 3
+                    },
+                    {
+                        'name': 'ஆரம்பித்தன',
+                        'value': 3
+                    },
+                    {
+                        'name': 'சொல்ல',
+                        'value': 3
+                    }
+                ]
+            }, {
+                name: 'Adjective',
+                data: [{
+                        'name': 'ஒரு',
+                        'value': 44
+                    },
+                    {
+                        'name': 'இருந்த',
+                        'value': 11
+                    },
+                    {
+                        'name': 'பெரிய',
+                        'value': 11
+                    },
+                    {
+                        'name': 'வந்த',
+                        'value': 8
+                    },
+                    {
+                        'name': 'சிறிய',
+                        'value': 8
+                    },
+                    {
+                        'name': 'கிடந்த',
+                        'value': 7
+                    },
+                    {
+                        'name': 'நின்ற',
+                        'value': 7
+                    },
+                    {
+                        'name': 'மீண்டும்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'மாபெரும்',
+                        'value': 6
+                    },
+                    {
+                        'name': 'பைலரும்',
+                        'value': 6
+                    },
+                    {
+                        'name': 'கரிய',
+                        'value': 6
+                    },
+                    {
+                        'name': 'சென்ற',
+                        'value': 5
+                    },
+                    {
+                        'name': 'எழுந்த',
+                        'value': 5
+                    },
+                    {
+                        'name': 'பிறந்த',
+                        'value': 5
+                    },
+                    {
+                        'name': 'விரிந்த',
+                        'value': 5
+                    },
+                    {
+                        'name': 'ஜைமினியும்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'அனைத்தையும்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'அனைத்து',
+                        'value': 4
+                    },
+                    {
+                        'name': 'வாழும்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'எஞ்சிய',
+                        'value': 4
+                    },
+                    {
+                        'name': 'நடுங்கும்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'காமத்தையும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'ஒரே',
+                        'value': 3
+                    },
+                    {
+                        'name': 'விண்ணிலும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'மலர்களும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'தொங்கிய',
+                        'value': 3
+                    },
+                    {
+                        'name': 'என்றென்றும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'நெய்யும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'குளிர்ந்த',
+                        'value': 3
+                    },
+                    {
+                        'name': 'மெல்லிய',
+                        'value': 3
+                    },
+                    {
+                        'name': 'செந்நிற',
+                        'value': 3
+                    },
+                    {
+                        'name': 'செல்லும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'சிவந்த',
+                        'value': 3
+                    },
+                    {
+                        'name': 'இலைகளும்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'வெண்ணிற',
+                        'value': 3
+                    },
+                    {
+                        'name': 'நீண்ட',
+                        'value': 3
+                    },
+                    {
+                        'name': 'உன்னையும்',
+                        'value': 2
+                    },
+                    {
+                        'name': 'உடலும்',
+                        'value': 2
+                    },
+                    {
+                        'name': 'மிருகங்களும்',
+                        'value': 2
+                    },
+                    {
+                        'name': 'முளைத்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'வந்திருந்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'மரவுரியணிந்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'உடைந்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'என்னும்',
+                        'value': 2
+                    },
+                    {
+                        'name': 'இறைச்சியும்',
+                        'value': 2
+                    },
+                    {
+                        'name': 'எடுக்கப்பட்ட',
+                        'value': 2
+                    },
+                    {
+                        'name': 'எனக்களித்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'மொத்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'மிகுந்த',
+                        'value': 2
+                    },
+                    {
+                        'name': 'முதல்',
+                        'value': 2
+                    }
+                ]
+            }, {
+                name: 'ADVERB',
+                data: [{
+                        'name': 'அங்கே',
+                        'value': 20
+                    },
+                    {
+                        'name': 'இனி',
+                        'value': 8
+                    },
+                    {
+                        'name': 'ஆனால்',
+                        'value': 8
+                    },
+                    {
+                        'name': 'வெளியே',
+                        'value': 7
+                    },
+                    {
+                        'name': 'முன்',
+                        'value': 7
+                    },
+                    {
+                        'name': 'இப்போது',
+                        'value': 6
+                    },
+                    {
+                        'name': 'அப்போது',
+                        'value': 5
+                    },
+                    {
+                        'name': 'மட்டும்',
+                        'value': 5
+                    },
+                    {
+                        'name': 'பின்னர்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'மேலும்',
+                        'value': 4
+                    },
+                    {
+                        'name': 'அங்கிருந்து',
+                        'value': 4
+                    },
+                    {
+                        'name': 'அதற்காக',
+                        'value': 3
+                    },
+                    {
+                        'name': 'முன்பு',
+                        'value': 3
+                    },
+                    {
+                        'name': 'அப்போதுதான்',
+                        'value': 3
+                    },
+                    {
+                        'name': 'முழுமையாக',
+                        'value': 2
+                    },
+                    {
+                        'name': 'உடைத்தபோது',
+                        'value': 2
+                    },
+                    {
+                        'name': 'இன்று',
+                        'value': 2
+                    },
+                    {
+                        'name': 'மெதுவாக',
+                        'value': 2
+                    },
+                    {
+                        'name': 'முதலில்',
+                        'value': 2
+                    },
+                    {
+                        'name': 'சொன்னபோது',
+                        'value': 2
+                    },
+                    {
+                        'name': 'ஆணைப்படி',
+                        'value': 2
+                    },
+                    {
+                        'name': 'விழுந்தபோது',
+                        'value': 2
+                    },
+                    {
+                        'name': 'ஆங்காங்கே',
+                        'value': 2
+                    },
+                    {
+                        'name': 'நேராக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நோக்கம்',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நோன்புணவுக்காக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நீருமாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நிலையழிந்தவனாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நிழலாட்டங்களாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நிழலைக்காணும்படி',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நெருப்பாறாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நெறிநூல்களின்படி',
+                        'value': 1
+                    },
+                    {
+                        'name': 'நுழைந்தபோது',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பாதாளத்துக்கான',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பாதாளமூர்த்திகளான',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பாம்புகளாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பின்வாங்கியபோது',
+                        'value': 1
+                    },
+                    {
+                        'name': 'விலக்கும்',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பிரபஞ்சவிதிகளுக்கு',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பழக்கியபோது',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பர்வங்களாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'பலகட்டங்களாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'தெரியும்',
+                        'value': 1
+                    },
+                    {
+                        'name': 'தேடியபோது',
+                        'value': 1
+                    },
+                    {
+                        'name': 'தூங்கும்போது',
+                        'value': 1
+                    },
+                    {
+                        'name': 'தூதனாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'தோலாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'வேள்விப்பொருளாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'வேள்வித்தூணாக',
+                        'value': 1
+                    },
+                    {
+                        'name': 'திரும்பிப்பார்த்தபோது',
+                        'value': 1
+                    }
+                ]
+            }]
+        });
+    </script>
+
+</body>
+
+</html>

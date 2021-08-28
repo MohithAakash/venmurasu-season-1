@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en tam">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            height: 600px;
+            width: 1000px;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 910px;
+            max-width: 5rem;
+            margin: 0.5em auto;
+            margin-top: 5rem;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <!-- <p class="highcharts-description">
+            Chart showing use of rotated axis labels and data labels. This can be a
+            way to include more labels in the chart, but note that more labels can
+            sometimes make charts harder to read.
+        </p> -->
+    </figure>
+
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Least Occuring words'
+            },
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '15px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'எண்ணிக்கை'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'எண்ணிக்கை: <b>{point.y:.0f}</b>'
+            },
+            series: [{
+                name: 'Population',
+                data: [
+                    ['வரவழைத்து',1],
+                    ['மரணமற்ற',1],
+                    ['சிம்மாசனத்தின்',1],
+                    ['இனியவர்',1],
+                    ['விழக்கூடாது',1],
+                    ['மரணமுனையில்',1],
+                    ['இக்கணத்தில்',1],
+                    ['வரம்',2],
+                    ['புத்தம்புதிய',2],
+                    ['அதர்வ',2],
+                    ['வேள்வியின்',2],
+                    ['கிழக்கே',2],
+                    ['உடைத்தபோது',2],
+                    ['வைதிகர்கள்',2],
+                    ['அகங்காரத்தையும்',2],
+                    ['மிருகங்களும்',2],
+                    ['கைகூப்பி',2],
+                    ['அமைச்சர்களும்',2],
+                    ['வலப்பக்கம்',2],
+                    ['கரங்களுடன்',2],
+                    ['தன்னுடைய',3],
+                    ['இனிமேல்',3],
+                    ['சுருதசேனன்',3],
+                    ['கைகூப்பியபடி',3],
+                    ['நாகங்களை',3],
+                    ['வைதிகர்களே',3],
+                    ['நீண்ட',3],
+                    ['அகங்காரம்',3],
+                    ['மனிதகுலத்தின்',3],
+                    ['கவிஜாதனை',3],
+                    ['நாகத்தின்', 4],
+                    ['அமர்ந்திருந்தார்', 4],
+                    ['சொன்னாள்', 4],
+                    ['பாரதவர்ஷத்தின்', 4],
+                    ['சூதர்களின்', 4],
+                    ['ஆஸ்திகனை', 4],
+                    ['முன்னால்', 5],
+                    ['அனைத்தையும்', 5],
+                    ['அரண்மனை', 5],
+                    ['அப்பால்', 5],
+
+
+                    // ['முன்னால்', 5],
+                    // ['அனைத்தையும்', 5],
+                    // ['என்றனர்', 5],
+                    // ['விதியின்', 5],
+                    // ['நடந்து', 5],
+                    // ['அப்பால்', 5],
+                    // ['அரண்மனை', 5],
+                    // ['தன்னை', 5],
+                    // ['கையில்', 5],
+                    // ['அமர்ந்து', 5],
+                    // ['விரித்து', 5],
+                    // ['இதை', 5],
+                    // ['இடம்', 4],
+                    // ['தலை', 4],
+                    // ['குழந்தைகள்', 4],
+                    // ['மாதம்', 4],
+                    // ['போன்ற', 4],
+                    // ['இருபக்கமும்', 4],
+                    // ['நடுங்கும்', 4],
+                    // ['வாழும்', 4],
+                    // ['மேலும்', 4],
+                    // ['வாழ்த்தி', 4],
+                    // ['சொல்ல', 4],
+                    // ['நாகத்தின்', 4],
+                    // ['அமர்ந்திருந்தார்', 4],
+                    // ['சொன்னாள்', 4],
+                    // ['பாரதவர்ஷத்தின்', 4],
+                    // ['அந்தச்', 4],
+                    // ['இரவில்', 4],
+                    // ['கணமும்', 4],
+                    // ['வந்தான்', 4],
+                    // ['அனைத்து', 4],
+                    // ['சூதர்களின்', 4],
+                    // ['ஆஸ்திகனை', 4],
+                    // ['உண்டு', 4],
+                    // ['முழுமையாகவே', 4],
+                    // ['முழுமை', 4],
+                    // ['அள்ளி', 4],
+                    // ['ஒளி', 4],
+                    // ['எஞ்சிய', 4],
+                    // ['ஒருநாள்', 4],
+                    // ['யுதிஷ்டிரர்', 4],
+                    // ['அவற்றை', 4],
+                    // ['வெண்ணிற', 4],
+                    // ['வேள்வியை', 4],
+                    // ['ஏறி', 4],
+                    // ['முனிவர்', 4],
+                    // ['அறிந்தது', 4],
+                    // ['அணிந்து', 4],
+                    // ['நாகங்களின்', 4],
+                    // ['பின்னர்', 4]
+
+                ],
+
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    format: '{point.y:.0f}', // one decimal
+                    y: 10, // 10 pixels down from the top
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    </script>
+    <p align="center" >
+        We here visualize some of the least occured words in the first five chapters using Bar chart.
+    </p>
+</body>
+
+</html>
